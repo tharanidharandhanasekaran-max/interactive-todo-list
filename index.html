@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple, responsive task manager that saves your tasks in your browser.">
+  <title>My Tasks — To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="eyebrow">YOUR PERSONAL WORKSPACE</div>
+      <h1>My Tasks<span class="title-dot">.</span></h1>
+      <p>Make space for what matters today.</p>
+    </header>
+
+    <section class="composer" aria-label="Add a task">
+      <form id="form">
+        <label class="sr-only" for="text">New task</label>
+        <input id="text" name="text" type="text" placeholder="What needs to get done?" maxlength="200" autocomplete="off">
+        <button class="add-btn" type="submit"><span aria-hidden="true">＋</span> Add task</button>
+      </form>
+    </section>
+
+    <section class="overview" aria-live="polite">
+      <div>
+        <span class="section-label">YOUR PROGRESS</span>
+        <p id="count" class="count">0 tasks left</p>
+      </div>
+      <div class="progress-track" aria-label="Task completion progress">
+        <div id="progress" class="progress-fill"></div>
+      </div>
+    </section>
+
+    <section class="tasks-section" aria-label="Tasks">
+      <div class="toolbar">
+        <nav class="filters" aria-label="Filter tasks">
+          <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All <span id="all-count">0</span></button>
+          <button type="button" class="filter-btn" data-filter="active" aria-pressed="false">Active <span id="active-count">0</span></button>
+          <button type="button" class="filter-btn" data-filter="done" aria-pressed="false">Done <span id="done-count">0</span></button>
+        </nav>
+        <button id="clear-completed" class="clear-btn" type="button">Clear completed</button>
+      </div>
+
+      <ul id="list" class="task-list"></ul>
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon" aria-hidden="true">✦</div>
+        <h2>Nothing here yet</h2>
+        <p>Add a task above and make today count.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Small steps. Big progress.</span>
+      <span><span class="storage-dot"></span> Saved on this device</span>
+    </footer>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+</body>
+</html>
